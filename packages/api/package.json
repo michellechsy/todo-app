@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "name": "api",
+  "version": "1.0.0",
+  "description": "TODO API",
+  "main": "index.js",
+  "author": "Michelle Zhang <michelle.chsy@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "devDependencies": {}
+}

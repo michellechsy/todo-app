@@ -1,0 +1,15 @@
+{
+  "files.autoSave": "onFocusChange",
+  "editor.formatOnSave": false,
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  "javascript.validate.enable": true,
+  "eslint.enable": true,
+  "esline.alwaysShowStatus": true,
+  "eslint.autoFixOnSave": true,
+  "editor.parameterHints": false,
+  "prettier.trailingComma": "none",
+  "prettier.semi": false,
+  "prettier.singleQuote": true
+}

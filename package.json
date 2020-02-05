@@ -1,0 +1,82 @@
+{
+  "private": true,
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "TODO App",
+  "repository": "https://github.com/michellechsy/todo-app.git",
+  "author": "Michelle Zhang <michelle.chsy@gmail.com>",
+  "license": "MIT",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "main": "index.js",
+  "lint-staged": {
+    "**/*.{js,jsx}": [
+      "prettier-eslint --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "scripts": {
+    "test": "echo hello",
+    "lint:ui": "yarn workspace ui lint",
+    "lint:api": "yarn workspace api lint",
+    "format": "prettier-eslint --write **/*.js",
+    "lint": "concurrently \"yarn lint:ui\" \"yarn lint:api\"",
+    "release": "standard-version"
+  },
+  "dependencies": {
+    "api": "*",
+    "lerna": "^3.20.2",
+    "standard-version": "^7.1.0",
+    "ui": "*"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-proposal-decorators": "^7.4.4",
+    "@babel/plugin-proposal-do-expressions": "^7.2.0",
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
+    "@babel/plugin-proposal-function-sent": "^7.2.0",
+    "@babel/plugin-proposal-json-strings": "^7.2.0",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.2.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.4.4",
+    "@babel/plugin-proposal-numeric-separator": "^7.2.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "@babel/plugin-proposal-pipeline-operator": "^7.3.2",
+    "@babel/plugin-proposal-throw-expressions": "^7.2.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-syntax-import-meta": "^7.2.0",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@commitlint/config-lerna-scopes": "^8.3.4",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.3",
+    "babel-preset-airbnb": "^4.4.0",
+    "concurrently": "^5.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.3",
+    "husky": "^4.2.1",
+    "lint-staged": "^10.0.7",
+    "prettier": "1.19.1",
+    "prettier-eslint": "^9.0.1",
+    "prettier-eslint-cli": "^5.0.0"
+  }
+}
