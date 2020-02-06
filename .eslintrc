@@ -11,10 +11,15 @@
     "sourceType": "module"
   },
   "rules": {
+    // React Native has JSX in JS files
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "no-unused-vars": ["error"],
     "quotes": ["error", "single"],
     "prettier/prettier": ["error"]
   },
   "plugins": [
-    "prettier"
+    "prettier",
+    "react",
+    "jsx-a11y"
   ]
 }
