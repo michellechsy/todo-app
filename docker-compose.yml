@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  db: 
+    container_name: todo-db
+    image: mysql:5.7
+    restart: always
+    volumes: 
+      - ./data:/var/lib/mysql
+    environment:
+      TZ: CST-8
+      MYSQL_USER: todo
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: todo 
+      MYSQL_ROOT_PASSWORD: r00t
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports: 
+      - "3306:3306"
+    networks:
+      - todo 
+
+networks:
+  todo:
+    driver: bridge 
+    

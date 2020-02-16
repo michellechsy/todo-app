@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "name": "db",
+  "version": "1.0.0",
+  "description": "TODO APP DB",
+  "main": "src/index.js",
+  "author": "Michelle Zhang <michelle.chsy@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "new:migration": "sequelize migration:generate",
+    "db:migrate": "sequelize db:migrate",
+    "db:migrate:down": "sequelize db:migrate:undo"
+  },
+  "dependencies": {
+    "bson": "^4.0.3",
+    "glob": "^7.1.6",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.3",
+    "sequelize-cli": "^5.5.1",
+    "sequelize-fixtures": "^1.1.1",
+    "uuid": "^3.4.0"
+  }
+}
