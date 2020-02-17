@@ -2,7 +2,6 @@ import { ObjectId } from 'bson'
 import glob from 'glob'
 import path from 'path'
 import Sequelize from 'sequelize'
-import fixtures from 'sequelize-fixtures'
 import { settings } from '../settings'
 
 const options = {
