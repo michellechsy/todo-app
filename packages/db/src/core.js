@@ -2,38 +2,38 @@ import { ObjectId } from 'bson'
 import glob from 'glob'
 import path from 'path'
 import Sequelize from 'sequelize'
-import { settings } from '../settings'
+import { settings } from 'core'
 
-const options = {
-  host: settings.host,
-  dialect: settings.dialect,
-  pool: settings.pool.enabled ? {
-    max: settings.max,
-    idle: settings.idle,
-    acquire: settings.acquire
-  } : false
+const defaultOptions = {
+  host: settings.db.host,
+  dialect: settings.db.dialect,
+  pool: settings.db.pool.enabled
+    ? {
+        max: settings.db.max,
+        idle: settings.db.idle,
+        acquire: settings.db.acquire
+      }
+    : false
 }
+
+/**
+ * Generate object ID as a key
+ */
+export const Key = () => new ObjectId().toHexString()
 
 export class Database extends Sequelize {
   constructor() {
-    if (settings.storage) {
+    if (settings.db.storage) {
       super({
         dialect: 'sqlite',
-        storage: settings.storage,
-        logging: settings.logging
+        storage: settings.db.storage,
+        logging: settings.db.logging
       })
     } else {
-      super(
-        settings.database,
-        settings.username,
-        settings.password,
-        options
-      )
+      super(settings.db.database, settings.db.username, settings.db.password, defaultOptions)
     }
     this.ready = false
   }
-
-  Key = () => new ObjectId().toHexString()
 
   /**
    * Table definition with pre-defined common fields, e.g. id
@@ -42,13 +42,14 @@ export class Database extends Sequelize {
    * @param {Object} options other options for the table definition
    */
   define(name, fields, options = {}) {
-    const attrs = Object.assign({
+    const attrs = {
       id: {
         primaryKey: true,
         type: Sequelize.CHAR(24),
         defaultValue: Key
-      }
-    }, fields || {})
+      },
+      ...(fields || {})
+    }
     return super.define(name, attrs, options)
   }
 
@@ -62,19 +63,12 @@ export class Database extends Sequelize {
       this.import(filepath) // register the model & cache it
     })
 
-    // associate models
+    // associate model
     Object.values(this.models).forEach(Model => {
-      Model.associate && Model.associate(this.models)
+      if (Model.associate) {
+        Model.associate(this.models)
+      }
     })
     this.ready = true
   }
-
-  // async seed(profile = 'default', filepath) {
-  //   if (!this.ready) {
-  //     this.this.bootstrap(filepath)
-  //   }
-  //   const yamls = Object.values(glob.sync(`${settings.directory.seeds}/*.yaml`))
-  //   return this.transaction(transaction => fixtures.loadFiles(yamls, this.models, { transaction }))
-  // }
 }
-
