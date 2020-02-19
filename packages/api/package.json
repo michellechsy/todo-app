@@ -9,5 +9,14 @@
   "scripts": {
     "lint": "eslint ."
   },
-  "devDependencies": {}
+  "nodemonConfig": {
+    "watch": [
+      "../api/*",
+      "../db/*"
+    ]
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "http-status": "^1.4.2"
+  }
 }
