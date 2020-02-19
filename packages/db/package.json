@@ -12,6 +12,7 @@
     "db:migrate:down": "sequelize db:migrate:undo"
   },
   "dependencies": {
+    "core": "*",
     "bson": "^4.0.3",
     "glob": "^7.1.6",
     "mysql2": "^2.1.0",
