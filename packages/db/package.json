@@ -8,8 +8,8 @@
   "license": "MIT",
   "scripts": {
     "new:migration": "sequelize migration:generate",
-    "db:migrate": "sequelize db:migrate",
-    "db:migrate:down": "sequelize db:migrate:undo"
+    "migrate:up": "sequelize db:migrate",
+    "migrate:down": "sequelize db:migrate:undo"
   },
   "dependencies": {
     "core": "*",
