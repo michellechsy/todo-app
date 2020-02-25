@@ -1,0 +1,34 @@
+language: node_js
+
+node_js:
+  - "latest"
+
+stages:
+  - test
+  - revision
+  - build
+  - deploy
+  
+cache: yarn
+
+
+before_script:
+  - apt-get update
+  - apt-get install python-pip -y
+
+test:
+  stage: test
+  services:
+    - mysql
+  before_script:
+    - mysql -e 'create database todo;'
+    - mysql -u root -e "create user todo identified by 'password'; grant all on todo.* to todo;"
+    
+  script:
+    - yarn install 
+    - yarn workspace db migrate:up 
+    - yarn test
+  branches:
+    except:
+      - tags
+
