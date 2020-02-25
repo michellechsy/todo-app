@@ -26,7 +26,9 @@
     }
   },
   "scripts": {
-    "test": "lerna run test --parallel",
+    "test:api": "yarn workspace api test",
+    "test:ui": "yarn workspace ui test",
+    "test": "concurrently \"yarn test:ui\" \"yarn test:api\"",
     "lint:ui": "yarn workspace ui lint",
     "lint:api": "yarn workspace api lint",
     "format": "prettier-eslint --write **/*.js",
