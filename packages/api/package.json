@@ -11,6 +11,11 @@
     "test": "jest",
     "start": "babel-node src/index.js"
   },
+  "files": [
+    "babel.config.js",
+    ".eslintrc",
+    ".prettierrc"
+  ],
   "nodemonConfig": {
     "watch": [
       "../api/*",

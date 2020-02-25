@@ -22,7 +22,8 @@ jobs:
       script:
         - yarn install 
         - yarn workspace db migrate:up 
-        - yarn test
+        - yarn test:core
+        - yarn test:ui 
       branches:
         except:
           - tags
