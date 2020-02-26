@@ -1,4 +1,6 @@
 # TODO Application 
+[![Build Status](https://travis-ci.com/michellechsy/todo-app.svg?branch=master)](https://travis-ci.com/michellechsy/todo-app)
+
 
 This is a TODO application implementation with features: 
 
