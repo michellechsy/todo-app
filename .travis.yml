@@ -36,3 +36,4 @@ jobs:
       script: 
         - yarn install
         - yarn release
+
