@@ -32,9 +32,7 @@ jobs:
     
     - stage: version
       name: revision
+      if: branch = master
       script: 
         - yarn install
         - yarn release
-      branches:
-        only:
-          - master
