@@ -5,14 +5,16 @@ node_js:
   
 cache: yarn
 
-
-before_script:
-  - apt-get update
-  - apt-get install python-pip -y
+stages:
+  - test
+  - version
+  - build
+  - deploy
 
 jobs:
   include:
-    - name: test
+    - stage: test
+      name: test
       services:
         - mysql
       before_script:
@@ -28,7 +30,8 @@ jobs:
         except:
           - tags
     
-    - name: revision
+    - stage: version
+      name: revision
       script: 
         - yarn install
         - yarn release
