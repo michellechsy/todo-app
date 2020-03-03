@@ -27,4 +27,11 @@ jobs:
       branches:
         except:
           - tags
-
+    
+    - name: revision
+      script: 
+        - yarn install
+        - yarn release
+      branches:
+        only:
+          - master
