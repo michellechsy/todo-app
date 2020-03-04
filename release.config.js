@@ -28,11 +28,7 @@ module.exports = {
       }
     ],
     [
-      '@semantic-release/github',
-      {
-        githubUrl: 'https://github.com/michellechsy/todo-app.git',
-        githubApiPathPrefix: 'api/v3/'
-      }
+      '@semantic-release/github'
     ],
     [
       '@semantic-release/npm',
