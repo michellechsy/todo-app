@@ -8,14 +8,17 @@ module.exports = {
         preset: 'angular',
         releaseRules: [
           { type: 'docs', scope: 'README', release: 'patch' },
-          { type: 'feat', release: 'patch' },
           { type: 'fix', release: 'patch' },
           { type: 'chore', release: 'patch' },
           { type: 'refactor', release: 'patch' },
           { type: 'style', release: 'patch' },
           { type: 'perf', release: 'patch' },
-          { type: 'test', release: 'patch' }
-        ]
+          { type: 'test', release: 'patch' },
+          { type: 'feat', release: 'minor' }
+        ],
+        parserOpts: {
+          noteKeywords: ['BREAKING CHANGE', 'BREAKING CHANGES']
+        }
       }
     ],
     [

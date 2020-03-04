@@ -34,7 +34,7 @@
     "lint:api": "yarn workspace api lint",
     "format": "prettier-eslint --write **/*.js",
     "lint": "concurrently \"yarn lint:ui\" \"yarn lint:api\"",
-    "release": "standard-version"
+    "release": "semantic-release"
   },
   "dependencies": {
     "@semantic-release/changelog": "^5.0.0",
