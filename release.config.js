@@ -30,7 +30,8 @@ module.exports = {
     [
       '@semantic-release/github',
       {
-        githubUrl: 'https://github.com/michellechsy/todo-app.git'
+        githubUrl: 'https://github.com/michellechsy/todo-app.git',
+        githubApiPathPrefix: 'api/v3/'
       }
     ],
     [
