@@ -45,7 +45,7 @@
     "@semantic-release/release-notes-generator": "^9.0.1",
     "api": "*",
     "lerna": "^3.20.2",
-    "semantic-release": "^17.0.4",
+    "semantic-release": "^19.0.3",
     "ui": "*"
   },
   "devDependencies": {
